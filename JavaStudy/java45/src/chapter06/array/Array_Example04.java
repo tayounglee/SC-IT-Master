@@ -52,8 +52,6 @@ public class Array_Example04 {
                 }
             }
             System.out.println();
-
-            //lottos[i] = numbers;
         }
     }
 }
