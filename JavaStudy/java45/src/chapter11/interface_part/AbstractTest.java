@@ -57,7 +57,6 @@ class Eagle extends Animal{
 }
 
 public class AbstractTest {
-
 	public static void main(String[] args) {
 		//Animal a = new Animal("동물");    // 추상 클래스는 인스턴스 생성 불가
 		//Animal b = new Human("사람");
