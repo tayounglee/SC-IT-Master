@@ -63,7 +63,5 @@ public class Novice{
 	public String toString() {
 		return String.format("[ID: %s, stat: 힘(%d), 민첩(%d), 지능(%d)]"
 				, name, strength, dexterity, intelligence);
-	}
-	
-	
+	}	
 }
