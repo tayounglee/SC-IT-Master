@@ -1,8 +1,8 @@
 package chapter14.collection;
 
-import java.util.*;
+import java.util.ArrayList;
 
-record Student(String name, int stdNum) {}
+record Student(String name, int stdNum) { }
 
 public class ArrayList_Test3 {
 
@@ -13,7 +13,14 @@ public class ArrayList_Test3 {
 		stList.add(new Student("강감찬", 20241003));
 		
 		for (int i = 0; i < stList.size(); i++) {
+//			String result = String.format("이름: %s, 학번: %d", stList.get(i).name(), stList.get(i).stdNum());
+//			System.out.println(result);
 			System.out.println(stList.get(i));
 		}
+		
+		for (Student s : stList) {
+			System.out.println(s);
+		}
 	}
+
 }
