@@ -1,38 +1,30 @@
 package chapter14.collection;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class User_Info_main {
-	
+
 	public static void main(String[] args) {
-		int select = 0;
-		boolean isLoop = true;
-		
-		User_Info_method ui_Method = new User_Info_method();
 		Scanner scan = new Scanner(System.in);
+		User_Info_method uim = new User_Info_method();
+		int num = 0;
 		
-		while(isLoop) {
-			ui_Method.printMenu();
-			select = scan.nextInt();
+		while(true) {
+			uim.printMenu();
+			num = scan.nextInt();
 			
-			switch(select) {
-				//0. 종      료
-				case 0:
-					System.out.println("프로그램을 종료합니다.");
-					System.exit(0);
-				case 1:
-					ui_Method.signUp();
-					break;
-				case 2:
-					ui_Method.memberCheck();
-					break;
-				case 3:					
-					ui_Method.memberCheckAll();
-					break;
-				default:
-					System.out.println("잘못 입력하였습니다.\n");
-					break;
-			}	
+			switch (num) {
+				case 1 -> uim.createUser();
+				case 2 -> uim.selectUser();
+				case 3 -> uim.selectAll();
+				case 0 -> { 
+					uim.printText(1);
+					return;
+				}
+				default -> uim.printText(2);
+			}
 		}
+
 	}
+
 }

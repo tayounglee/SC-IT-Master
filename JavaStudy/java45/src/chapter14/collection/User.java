@@ -1,35 +1,52 @@
 package chapter14.collection;
 
-public class User {
-	
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+
+public class User implements Comparable<User>{
+
 	private String id;
 	private String pw;
 	private String name;
 	private String Reg_Date;
 	
-	public User() {}
-	
-	public User(String id, String pw, String name, String Reg_Date) {
+	public User(String id, String pw, String name) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
-		this.Reg_Date = Reg_Date;
+		GregorianCalendar today = new GregorianCalendar();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/M/d a hh:mm:ss");
+		String result = sdf.format(today.getTime());
+		this.Reg_Date = result;
 	}
 
-	public String getId() {
-		return id;
+	@Override
+	public int hashCode() {
+		return this.id.hashCode();
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (this.id != other.id)
+			return false;
+		return true;
 	}
 
-	public String getPw() {
-		return pw;
+	@Override
+	public String toString() {
+		return String.format("[ID: %5s] [Name: %4s] [Reg_Date: %s]", id, name, Reg_Date);
 	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
+	
+	@Override
+	public int compareTo(User m) {
+		return (this.id.compareTo(m.id));	// 역순 * -1
 	}
 
 	public String getName() {
@@ -40,16 +57,20 @@ public class User {
 		this.name = name;
 	}
 
+	public String getId() {
+		return id;
+	}
+
 	public String getReg_Date() {
 		return Reg_Date;
 	}
+	
+	public String getPw() {
+		return pw;
+	}
 
-	public void setReg_Date(String reg_Date) {
-		Reg_Date = reg_Date;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 	
-	public String toString() {
-		return String.format("[ID:  %s] [Name:  %s] [Reg_Date: %s]"
-				, id, name, Reg_Date );
-	}
 }
